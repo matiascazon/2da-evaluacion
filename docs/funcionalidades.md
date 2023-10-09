@@ -6,7 +6,7 @@
   - [Rutas](#rutas)
     - [Página 1: Inicio (/home)](#pagina-1-inicio-home)
     - [Página 2: Contacto (/contact)](#pagina-2-contacto)
-    - [Página 3: Detalle del dentista (/dentist/:id)](#pagina-3-detalle-del-dentista)
+    - [Página 3: Detalle del profesional (/professional/:id)](#pagina-3-detalle-del-profesional)
     - [Página 4: Destacados (/favs)](#pagina-4-destacados)
 - [Resultado final](#resultado-final)
 
@@ -14,7 +14,7 @@
 
 Las siguientes funcionalidades son requisitos mínimos necesarios para la aprobación del final y es fundamental que funcionen correctamente.
 
-**La aplicación deberá contar con cuatro (4) páginas: Home, Contacto, Detalle de cada dentista, Destacados**
+**La aplicación deberá contar con cuatro (4) páginas: Home, Contacto, Detalle de cada profesional, Destacados**
 
 **La correcta navegacion entre las paginas por medio de Links propios de React Router sera obligatoria para la aprobacion**
 
@@ -46,13 +46,13 @@ En base al tema (claro u oscuro) consumido del contexto global, estilar las cuat
 
 ### Pagina 1: Inicio Home
 
-En esta página se deberá mostrar un listado en forma de grilla de los dentistas devueltos por la API
+En esta página se deberá mostrar un listado en forma de grilla de los profesionals devueltos por la API
 
 Se deberá tener en cuenta lo siguiente:
 
 - Deberá ser la página de inicio de la web.
-- La grilla deberá mostrar una [Card](/src/Components/Card.jsx) por cada dentista devuelto por la API.
-- Cada dentista deberá contener `name` y `username`, junto con un boton `ADD FAV` (para agregar al localStorage como fav) y un `link` que permita su navegacion a la pagina _dentist/:id_ en base al id del dentista.
+- La grilla deberá mostrar una [Card](/src/Components/Card.jsx) por cada profesional devuelto por la API.
+- Cada profesional deberá contener `name` y `username`, junto con un boton `ADD FAV` (para agregar al localStorage como fav) y un `link` que permita su navegacion a la pagina _professional/:id_ en base al id del profesional.
 - Cada Card debe integrar la funcionalidad de agregar a destacados
 
 ### Pagina 2: Contacto
@@ -64,13 +64,13 @@ En esta pagina deberán implementar un [Form](/src/Components/Form.jsx) (con sus
 - En caso de haber un error mostrar el siguiente mensaje de error: **Por favor verifique su información nuevamente**
 - Una vez "enviado"( no se envía a ningún servidor pero podemos mostrar por consola los datos submiteados) el formulario deberán mostrar un mensaje de éxito que contenga el siguiente formato: **Gracias _[nombre del usuario]_, te contactaremos cuando antes vía mail**
 
-### Pagina 3: Detalle del dentista
+### Pagina 3: Detalle del profesional
 
-En esta página se deberá mostrar un detalle de un dentista individual de la API.
+En esta página se deberá mostrar un detalle de un profesional individual de la API.
 
 Se deberá tener en cuenta lo siguiente:
 
-- Deberá estar en la ruta `/dentist/:id`.
+- Deberá estar en la ruta `/professional/:id`.
 - La página deberá indicar al menos la siguiente información:
   - Nombre del personaje
   - Email
@@ -79,7 +79,7 @@ Se deberá tener en cuenta lo siguiente:
 
 ### Pagina 4: Destacados
 
-En esta pagina se debera renderizar las [Cards](/src/Components/Card.jsx) pertinentes a los dentistas destacados. Dicha información deberá estar almacenada dentro del localStorage del browser y ser consumida dentro de la pagina
+En esta pagina se debera renderizar las [Cards](/src/Components/Card.jsx) pertinentes a los profesionals destacados. Dicha información deberá estar almacenada dentro del localStorage del browser y ser consumida dentro de la pagina
 
 - Se deberá estar en la ruta `/favs`.
 
