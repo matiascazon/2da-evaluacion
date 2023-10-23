@@ -1,22 +1,19 @@
 import useStorage from "../hooks/useStorage";
 import Card from "../Components/Card";
-import { useContext, useState } from "react";
-import { ContextGlobal } from "../Components/utils/global.context";
+import { useState } from "react";
+
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
-  const {getFav,saveFav} = useStorage('sessionStorage')
+  const {getFav} = useStorage('sessionStorage')
   
   const guardados = getFav('favoritos',false) //obtiene los favoritos de sessionStorage y le indica que no es String
-
-  // const [favoritos,setFavoritos] = useState(JSON.parse(guardados))
-  const {state,dispatch} = useContext(ContextGlobal)
+  
+  const [favoritos,setFavoritos] = useState(JSON.parse(guardados))
 
   const deleteFav = (id) => {
     const newFavs = favoritos.filter((favorito) => favorito.id !== id)
-  
-    // dispatch({type:'DELETE_FAV',payload:newFavs})
   }
 
 
@@ -27,14 +24,14 @@ const Favs = () => {
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
 
-        {
-          state.map((favorito) => (
+        {/* {
+          state.favs.map((favorito) => (
             <Card
               key={favorito.id}
               user={favorito}
             ></Card>
           ))
-        }
+        } */}
       </div>
     </>
   );

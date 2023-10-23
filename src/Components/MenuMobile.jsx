@@ -11,7 +11,7 @@ const MenuMobile = () => {
     <>
     {/* Falta poner icons y logo del sitio */}
       <button onClick={handleMenu}>Menu</button>
-      <div className={`${open ? ' z-10 w-3/5 h-screen bg-gray-200 absolute top-0 left-0' : 'w-0 hidden'} `}>
+      <div className={`${open ? ' z-20 w-3/5 h-screen bg-gray-200 absolute top-0 left-0' : 'w-0 hidden'} `}>
         <div className='w-full h-full flex flex-col'>
           <div className='w-full flex justify-between items-center p-6' >
             <div>logo</div>
@@ -32,7 +32,7 @@ const MenuMobile = () => {
           </div>
         </div>
       </div>
-      <div className={`${open ? 'z-0 absolute top-0 left-0 h-screen w-screen bg-slate-500 bg-opacity-70' : 'hidden'}  `}
+      <div className={`${open ? 'z-10 absolute top-0 left-0 h-screen w-screen bg-slate-500 bg-opacity-70' : 'hidden'}  `}
         onClick={handleMenu}
       ></div> 
     </>

@@ -3,12 +3,17 @@ import React from 'react'
 const useStorage = (tipo) => {
     
     const saveFav = (key,value) => { //guarda un profesional bajo una clave(key) especifica
-        if(value === null || value === undefined) return
-
-         // si el valor es de tipo string. Si no lo es, lo convertimos usando JSON.stringify
-        const parsedItem = (typeof value !== "string" ? JSON.stringify(value) : value)
-
-        return tipo === "localStorage" ? localStorage.setItem(key, parsedItem) : sessionStorage.setItem(key, parsedItem) //segun el tipo guarda en el local o session storage
+        const favs = []
+        favs.push(JSON.parse(localStorage.getItem(key)))
+        
+        if(value === null || value === undefined){
+            return
+        } 
+            
+        
+        favs.push(value)
+        console.log(favs)
+        return tipo === "localStorage" ? localStorage.setItem(key, JSON.stringify(favs)) : sessionStorage.setItem(key, parsedItem) //segun el tipo guarda en el local o session storage
     }
 
     const getFav = (key,esString) => {

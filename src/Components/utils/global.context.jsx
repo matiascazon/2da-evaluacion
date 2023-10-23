@@ -3,7 +3,7 @@ import { createContext, useEffect, useReducer } from "react";
 export const initialState = {
     theme: "",
     data: [], 
-    favs: JSON}
+  }
 
 export const ContextGlobal = createContext(undefined);
 
@@ -14,11 +14,6 @@ const reducer = (state,action) => {
       return{
         ...state,
         data: action.payload, //actualiza los datos consumidos de la api
-      }
-    case 'ADD_FAV':
-      return{
-        ...state,
-        favs: state.favs, //actualiza el estado de los profesionales favoritos 
       }
   }
 }

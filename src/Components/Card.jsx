@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import img from './../images/doctor.jpg'
+import useStorage from '../hooks/useStorage';
+
 
 const Card = ({user}) => {
   const navigate = useNavigate()
-  
+  const {saveFav} = useStorage('localStorage')
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
+    saveFav('favoritos',user)
   };
 
   return (
