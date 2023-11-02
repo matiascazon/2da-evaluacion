@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 export const initialState = {
     theme: "",
@@ -19,7 +19,6 @@ const reducer = (state,action) => {
 }
 
 export const ContextProvider = ({ children }) => {
-
    // Utiliza useReducer para inicializar el estado global con el initialState y el reducer(funcion)
   const [state,dispatch] = useReducer(reducer,initialState)
 

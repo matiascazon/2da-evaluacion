@@ -4,10 +4,9 @@ import Form from "../Components/Form";
 
 const Contact = () => {
   return (
-    <div>
-      <h2>Want to know more?</h2>
-      <p>Send us your questions and we will contact you</p>
-      <Form />
+    <div className="px-4 flex flex-col justify-center items-center">
+      <h1 className="text-2xl text-center font-bold mt-5 mb-3 uppercase">Contacto</h1>
+      <Form/>
     </div>
   );
 };

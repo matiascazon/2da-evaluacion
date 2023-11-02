@@ -1,15 +1,28 @@
 import { useNavigate } from 'react-router-dom';
 import img from './../images/doctor.jpg'
 import useStorage from '../hooks/useStorage';
+import { useEffect, useState } from 'react';
 
 
 const Card = ({user}) => {
   const navigate = useNavigate()
-  const {saveFav} = useStorage('localStorage')
-  const addFav = () => {
-    // Aqui iria la logica para agregar la Card en el localStorage
-    saveFav('favoritos',user)
-  };
+  const {saveFav,getFavs,deleteFav} = useStorage('localStorage')
+  const [isFav, setIsFav] = useState(false)
+
+  const toggleFav = () => {
+    if(isFav){
+      deleteFav('favoritos', user.id)  
+    }else{
+      saveFav('favoritos', user)
+    }
+
+    setIsFav(!isFav)
+  }
+    
+  useEffect(() => {
+    setIsFav(getFavs('favoritos')?.some(fav => fav.id === user.id))
+    // setFavs(getFavs('favoritos'))
+  }, [user.id, isFav])
 
   return (
     <div className={`relative w-60 border-neutral-400 bg-gray-100 py-2 px-3 rounded-md hover:bg-gray-200 hover:scale-105 hover:transition-transform`}>
@@ -31,8 +44,8 @@ const Card = ({user}) => {
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      <button onClick={addFav} className="favButton">
-        Add fav
+      <button onClick={toggleFav} className="favButton">
+        {isFav ? "❤" : "💔"}
       </button>
     </div>
   );

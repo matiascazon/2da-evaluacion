@@ -4,9 +4,11 @@ import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col justify-between min-h-screen">
       <Navbar />
-      <Outlet/>      
+      <main className="flex-grow">
+        <Outlet/>      
+      </main>
       <Footer />
     </div>
   );

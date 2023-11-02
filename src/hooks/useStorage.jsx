@@ -3,26 +3,36 @@ import React from 'react'
 const useStorage = (tipo) => {
     
     const saveFav = (key,value) => { //guarda un profesional bajo una clave(key) especifica
-        const favs = []
-        favs.push(JSON.parse(localStorage.getItem(key)))
-        
         if(value === null || value === undefined){
             return
         } 
-            
+        const favs = getFavs(key) || []
         
         favs.push(value)
-        console.log(favs)
-        return tipo === "localStorage" ? localStorage.setItem(key, JSON.stringify(favs)) : sessionStorage.setItem(key, parsedItem) //segun el tipo guarda en el local o session storage
+        
+        tipo === "localStorage" ? localStorage.setItem(key, JSON.stringify(favs)) : sessionStorage.setItem(key, JSON.stringify(favs)) //segun el tipo guarda en el local o session storage
+       
     }
 
-    const getFav = (key,esString) => {
+    const getFavs = (key) => {
         const data = tipo === 'localStorage' ? localStorage.getItem(key) : sessionStorage.getItem(key)
-
-        return esString ? data : JSON.parse(data)
+        return JSON.parse(data)
     }
 
-    return {saveFav,getFav}
+    const deleteFav = (key,id) => {
+        
+        if(id === null || id === undefined) {
+            return
+        }
+
+        const favs = JSON.parse(localStorage.getItem(key)) || []
+
+        const newFavs = favs.filter((fav) => (fav.id !== id))
+
+       tipo === "localStorage" ? localStorage.setItem(key, JSON.stringify(newFavs)) : sessionStorage.setItem(key, JSON.stringify(newFavs)) //segun el tipo guarda en el local o session storage
+    }
+
+    return {saveFav,getFavs,deleteFav}
 }
 
 export default useStorage
