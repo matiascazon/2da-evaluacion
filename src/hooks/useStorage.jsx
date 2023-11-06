@@ -5,10 +5,13 @@ const useStorage = (tipo) => {
     const saveFav = (key,value) => { //guarda un profesional bajo una clave(key) especifica
         if(value === null || value === undefined){
             return
-        } 
+        }
+
         const favs = getFavs(key) || []
         
-        favs.push(value)
+        if(!favs.includes(fav => fav.id === value.id)){
+            favs.push(value)
+        }
         
         tipo === "localStorage" ? localStorage.setItem(key, JSON.stringify(favs)) : sessionStorage.setItem(key, JSON.stringify(favs)) //segun el tipo guarda en el local o session storage
        

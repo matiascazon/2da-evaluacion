@@ -38,7 +38,7 @@ const Form = () => {
   console.log(errors)
   return (
     <> 
-      <form onSubmit={handleSubmit} className="w-full h-full max-w-3xl px-3 rounded-md bg-gray-100 flex flex-col">
+      <form onSubmit={handleSubmit} className="w-full h-full max-w-3xl px-3 rounded-md bg-gray-100 flex flex-col dark:bg-neutral-800">
         <h2 className="text-center text-xl font-semibold my-6">Información Personal</h2>
         <label htmlFor="nombre" className='ml-3 mb-1 text-gray-500 font-normal'>Nombre</label>
         <input 
@@ -64,7 +64,7 @@ const Form = () => {
         {/* {errors.email && <div className=" bg-red-500 text-white rounded-md font-semibold h-10 w-full text-center py-2 mt-2">{errors.email}</div>} */}
         <button 
           type="submit" 
-          className="relative h-10 my-6 w-36 text-center self-center bg-indigo-400 text-white font-medium rounded-md "
+          className="relative h-10 my-6 w-36 text-center self-center bg-indigo-400 text-white font-medium rounded-md hover:bg-indigo-500 dark:bg-indigo-700 dark:hover:bg-indigo-800"
           disabled={loading ? true : false}
         > 
           {loading ? 

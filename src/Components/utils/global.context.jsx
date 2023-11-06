@@ -15,6 +15,11 @@ const reducer = (state,action) => {
         ...state,
         data: action.payload, //actualiza los datos consumidos de la api
       }
+    case 'CHANGE_THEME':
+      return{
+        ...state,
+        theme: action.payload
+      }
   }
 }
 

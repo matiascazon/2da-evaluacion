@@ -25,7 +25,7 @@ const Card = ({user}) => {
   }, [user.id, isFav])
 
   return (
-    <div className={`relative w-60 border-neutral-400 bg-gray-100 py-2 px-3 rounded-md hover:bg-gray-200 hover:scale-105 hover:transition-transform`}>
+    <div className={`relative w-60 border-neutral-400 bg-gray-100 py-2 px-3 rounded-md hover:bg-gray-200 hover:scale-105 hover:transition-transform dark:bg-neutral-700`}>
       {/* En cada card deberan mostrar en name - username y el id */}
       
       <img src={img} alt="foto de perfil" className='rounded-md cursor-pointer' onClick={() => navigate(`/detalles/${user.id}`)}/>

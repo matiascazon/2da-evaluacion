@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const MenuMobile = () => {
@@ -7,11 +7,24 @@ const MenuMobile = () => {
     setOpen(!open)
   }
   const location = useLocation()
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+    return () => {
+      document.body.style.overflow = 'auto'
+    };
+  }, [open])
+
+
   return (
     <>
     {/* Falta poner icons y logo del sitio */}
       <button onClick={handleMenu}>Menu</button>
-      <div className={`${open ? ' z-20 w-3/5 h-screen bg-gray-200 absolute top-0 left-0' : 'w-0 hidden'} `}>
+      <div className={`${open ? ' z-20 w-3/5 h-screen bg-gray-200 absolute top-0 left-0 dark:bg-neutral-900' : 'w-0 hidden'} `}>
         <div className='w-full h-full flex flex-col'>
           <div className='w-full flex justify-between items-center p-6' >
             <div>logo</div>
